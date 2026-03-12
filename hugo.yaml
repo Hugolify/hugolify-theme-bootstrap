@@ -19,6 +19,8 @@ module:
 
 # Params
 params:
+
+  # Load JS
   bootstrap:
     alert: false 
     carousel: false 

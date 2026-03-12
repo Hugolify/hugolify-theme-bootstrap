@@ -1,4 +1,4 @@
-import Offcanvas from 'js/bootstrap/src/offcanvas';
+import Offcanvas from 'js/bootstrap/src/offcanvas'; // required
 
 document.addEventListener('DOMContentLoaded', function () {
   /* hide offCanvasMenu when clicking an anchors */
