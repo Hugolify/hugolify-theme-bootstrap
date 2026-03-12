@@ -1,7 +1,10 @@
 module:
+  
   mounts:
+    # Copy SASS and JS
     - source: assets
       target: assets
+  
   imports:
     # Import Bootstrap 5
     - path: github.com/gohugoio/hugo-mod-bootstrap-scss/v5
