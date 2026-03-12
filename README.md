@@ -26,6 +26,7 @@ Add custom mixins in `assets/sass/abstracts/_mixins.sass`.
 ```
 assets/
 ├── sass/
+│   ├── main-theme.sass
 │   ├── abstracts/        # Variables, mixins, functions
 │   ├── base/             # Element styles
 │   ├── layout/           # Header, footer, grid, sidebar
