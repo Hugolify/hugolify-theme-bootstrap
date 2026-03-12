@@ -1,0 +1,30 @@
+module:
+  mounts:
+    - source: assets
+      target: assets
+  imports:
+    # Import Bootstrap 5
+    - path: github.com/gohugoio/hugo-mod-bootstrap-scss/v5
+    # Import Bootstrap icons
+    - path: github.com/twbs/icons
+      ignoreConfig: true
+      mounts:
+        - source: font/fonts
+          target: static/assets/fonts/bootstrap-icons
+        - source: font/bootstrap-icons.scss
+          target: assets/scss/bootstrap-icons/bootstrap-icons.scss
+
+# Params
+params:
+  bootstrap:
+    alert: false 
+    carousel: false 
+    collapse: true 
+    dropdown: true 
+    modal: true 
+    offcanvas: true 
+    popover: false 
+    scrollspy: false 
+    tab: false 
+    toast: false 
+    tooltip: false 
