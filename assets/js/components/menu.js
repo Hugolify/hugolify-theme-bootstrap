@@ -15,7 +15,7 @@ class Menu {
     this.classDropdownMenuOpen = 'is-dropdown-menu-open';
     this.componentElm = document.getElementById('navigation');
     this.component = this.componentElm.dataset.component;
-    this.dropdowns = this.elm.querySelectorAll('[data-bs-toggle="dropdown"]');
+    this.dropdowns = this.elm.querySelectorAll('.js-dropdown-toggle');
     this.offset = this.elm.offsetHeight;
 
     this.initDropdowns();

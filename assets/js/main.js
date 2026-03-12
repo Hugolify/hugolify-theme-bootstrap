@@ -13,12 +13,15 @@ import './utils/global';
 {{ end }}
 {{ if .Site.Params.bootstrap.dropdown }}
     import Dropdown from 'js/bootstrap/src/dropdown';
+    import './utils/bs-init-dropdown';
 {{ end }}
 {{ if .Site.Params.bootstrap.modal }}
     import Modal from 'js/bootstrap/src/modal';
+    import './utils/bs-init-modal';
 {{ end }}
 {{ if .Site.Params.bootstrap.offcanvas }}
     import Offcanvas from 'js/bootstrap/src/offcanvas';
+    import './utils/bs-init-offcanvas';
 {{ end }}
 {{ if .Site.Params.bootstrap.popover }}
     import Popover from 'js/bootstrap/src/popover';
