@@ -26,7 +26,10 @@ Add custom mixins in `assets/sass/abstracts/_mixins.sass`.
 ```
 assets/
 ├── sass/
+│   ├── main.sass
 │   ├── main-theme.sass
+│   ├── site.sass
+│   ├── theme.sass
 │   ├── abstracts/        # Variables, mixins, functions
 │   ├── base/             # Element styles
 │   ├── layout/           # Header, footer, grid, sidebar
@@ -38,6 +41,10 @@ assets/
     ├── features/         # Animation, carousel, map…
     └── blocks/           # Block-specific scripts
 ```
+
+## Icon
+
+https://icons.getbootstrap.com
 
 ## Documentation
 
