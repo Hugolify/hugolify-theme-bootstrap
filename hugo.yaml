@@ -6,8 +6,10 @@ module:
       target: assets
   
   imports:
+    
     # Import Bootstrap 5
     - path: github.com/gohugoio/hugo-mod-bootstrap-scss/v5
+
     # Import Bootstrap icons
     - path: github.com/twbs/icons
       ignoreConfig: true
