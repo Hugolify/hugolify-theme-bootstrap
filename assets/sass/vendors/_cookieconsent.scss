@@ -1,3 +1,6 @@
+$toggle-knob-height: 23px;
+$toggle-knob-width: 50px;
+
 // With Bootstrap variable
 :root {
   @if variable-exists(modal-content-bg) {
