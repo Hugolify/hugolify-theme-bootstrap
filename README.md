@@ -3,12 +3,21 @@
 Bootstrap 5 styling layer for [hugolify-theme](https://github.com/hugolify/hugolify-theme).
 
 This module provides the CSS (Bootstrap 5 + SASS) and JavaScript (Bootstrap 5 + Vanilla JS) for hugolify-theme.
-It is imported automatically by hugolify-theme — you do not need to import it directly.
 
 ## Requirements
 
 - [Hugo extended](https://gohugo.io/installation/)
 - [hugolify-theme](https://github.com/hugolify/hugolify-theme)
+
+## Install
+
+Edit `config/_default/module.yaml`:
+
+```yaml
+imports:
+  - path: github.com/hugolify/hugolify-theme
+  - path: github.com/hugolify/hugolify-theme-bootstrap
+```
 
 ## Customization
 
@@ -20,9 +29,25 @@ Override variables in `assets/sass/abstracts/_variables-site.sass`:
 $primary: #000000
 $blockquote-color: #333333
 $global-spacing: 3rem
+$grid-columns: 12
 ```
 
 Add custom mixins in `assets/sass/abstracts/_mixins.sass`.
+
+#### Semantic column classes
+
+Templates use framework-agnostic column classes mapped to Bootstrap via `$grid-columns`:
+
+| Class | Ratio | Bootstrap (12 cols) |
+| --- | --- | --- |
+| `.col-xsmall` | 1/3 | `col-md-4` |
+| `.col-small` | 1/2 | `col-md-6` |
+| `.col-medium` | 2/3 | `col-md-8` |
+| `.col-large` | 5/6 | `col-md-10` |
+| `.offset-center` | centered | `margin-left: auto` & `margin-right: auto` |
+| `.offset-end` | align end | `margin-left: auto` |
+
+Changing `$grid-columns: 16` recalculates all column widths automatically.
 
 ### JavaScript
 
@@ -30,17 +55,28 @@ Bootstrap components are opt-in via `params.yaml`. Each component is initialized
 
 ```yaml
 bootstrap:
-  alert: false # Disable by default
+  alert: false
   carousel: false # Use Splide JS instead
-  collapse: true 
-  dropdown: true 
-  modal: true 
-  offcanvas: true 
-  popover: false # Disable by default
-  scrollspy: false # Disable by default
-  tab: false # Disable by default
-  toast: false # Disable by default
-  tooltip: false # Disable by default
+  collapse: true
+  dropdown: true
+  modal: true
+  offcanvas: true
+  popover: false
+  scrollspy: false
+  tab: false
+  toast: false
+  tooltip: false
+
+animation: false # Load js and add data attributes
+carousel: true # Load splidejs
+map: true # Load leaflet
+parallax:
+  enable: false # Load js and add data attributes
+  cover: -2 # e.g.: for cover element
+  heading: -0.25 # e.g.: for heading element
+  percentage: 0.5
+vimeo: false # Load API Vimeo
+youtube: false # Load API Youtube
 ```
 
 | Class | Component |
@@ -76,7 +112,7 @@ assets/
 │   ├── theme.sass             # Theme overrides
 │   ├── abstracts/             # Variables, mixins, functions
 │   ├── base/                  # Element styles
-│   ├── layout/                # Header, footer, grid, sidebar
+│   ├── layout/                # Header, footer, col, grid, sidebar
 │   ├── components/            # UI components
 │   ├── pages/                 # Page-specific styles
 │   └── vendors/               # Bootstrap, Splide, Leaflet…
@@ -86,7 +122,8 @@ assets/
     ├── components/            # Menu, TOC, video…
     ├── features/              # Animation, carousel, map…
     ├── blocks/                # Block-specific scripts
-    └── utils/                 # Shared utilities (scrollspy…)
+    ├── utils/                 # Shared utilities
+    └── vendors/               # Additional vendors
 ```
 
 ## Icon
