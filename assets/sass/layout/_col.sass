@@ -1,7 +1,8 @@
 // Semantic column classes — dynamic ratio mapping
 // Ratios: xsmall=1/3, small=1/2, medium=2/3, large=5/6
 // Adapts to any $grid-columns value (default: 12)
-$semantic-cols: ("xsmall": (1, 3), "small": (1, 2), "medium": (2, 3), "large": (5, 6))
+// in variables.default.sass:
+// $semantic-cols: ("xsmall": (1, 3), "small": (1, 2), "medium": (2, 3), "large": (5, 6))
 
 @each $name, $ratio in $semantic-cols
     $num: nth($ratio, 1)

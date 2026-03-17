@@ -36,7 +36,7 @@ params:
     scrollspy: false 
     tab: false 
     toast: false 
-    tooltip: false 
+    tooltip: false
   map: true # Load leaflet
   parallax:
     enable: false # Load js and add data attributes
