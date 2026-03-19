@@ -20,5 +20,11 @@
   "license": "MIT",
   "devDependencies": {
     "@hugolify/prettier-config": "^0.3.1"
+  },
+  "peerDependencies": {
+    "@fullhuman/postcss-purgecss": "^5",
+    "autoprefixer": "^10",
+    "postcss": "^8",
+    "postcss-cli": "^11"
   }
 }

@@ -22,6 +22,10 @@ module:
 # Params
 params:
 
+  # PostCSS config
+  css:
+    postcss: "postcss/bootstrap"
+
   # Load JS
   animation: false # Load js and add data attributes
   carousel: true # Load splidejs
