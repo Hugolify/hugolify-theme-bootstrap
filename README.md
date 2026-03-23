@@ -15,7 +15,7 @@ Edit `config/_default/module.yaml`:
 
 ```yaml
 imports:
-  - path: github.com/hugolify/hugolify-theme
+  - path: github.com/hugolify/hugolify-theme/v2
   - path: github.com/hugolify/hugolify-theme-bootstrap
 ```
 

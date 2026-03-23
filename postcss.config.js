@@ -1,16 +1,12 @@
 /**
  * PostCSS config — hugolify-theme-bootstrap
  *
- * Copy this file to the root of your Hugo project and install the dependencies:
- *   npm install -D postcss autoprefixer @fullhuman/postcss-purgecss
+ * Copy this file to "postcss/bootstrap" directory of your Hugo project and install the dependencies:
+ *   hugo mod get && hugo mod npm pack && yarn install
  *
  * Requires Hugo stats for PurgeCSS (hugo.yaml):
  *   build:
  *     writeStats: true
- *
- * Declare in your params (config/_default/params.yaml):
- *   css:
- *     postcss: "postcss.config.bootstrap.js"
  */
 
 /* eslint-disable no-undef */
