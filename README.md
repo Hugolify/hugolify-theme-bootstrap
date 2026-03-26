@@ -1,4 +1,8 @@
-# hugolify-theme-bootstrap
+# Hugolify theme Bootstrap
+
+<img width="1280" height="640" alt="share-hugolify-theme-bootstrap" src="https://github.com/user-attachments/assets/5d811814-6578-4789-9141-e79be2cd4c00" />
+
+## Overview
 
 Bootstrap 5 styling layer for [hugolify-theme](https://github.com/hugolify/hugolify-theme).
 
@@ -6,8 +10,8 @@ This module provides the CSS (Bootstrap 5 + SASS) and JavaScript (Bootstrap 5 + 
 
 ## Requirements
 
-- [Hugo extended](https://gohugo.io/installation/)
-- [hugolify-theme](https://github.com/hugolify/hugolify-theme)
+- [Hugo extended](https://gohugo.io/installation/) >= 0.141.0
+- [hugolify-theme](https://github.com/hugolify/hugolify-theme) >= 2.0.0
 
 ## Install
 
