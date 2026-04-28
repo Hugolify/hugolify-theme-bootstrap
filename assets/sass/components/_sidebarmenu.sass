@@ -48,7 +48,7 @@
                     @include icon("list-nested")
                     margin-right: .5rem
 
-    .offcanvas
+    .drawer
         @extend .offcanvas-md
         @extend .offcanvas-start
         @include media-breakpoint-up(md)
@@ -61,7 +61,6 @@
     .header
         @extend .offcanvas-header
         button
-            @extend .btn-close
             background-image: escape-svg($btn-close-bg)
             background-position: center
             background-repeat: no-repeat

@@ -1,7 +1,7 @@
 /**
  * Search — focuses the input when the search panel opens.
  *
- * Listens to modal:shown and offcanvas:shown custom events.
+ * Listens to modal:shown and shown.bs.offcanvas Bootstrap events.
  */
 const search = document.getElementById('mainSearch');
 

@@ -88,11 +88,11 @@ youtube: false # Load API Youtube
 | `.js-alert-close` | Alert dismiss |
 | `.js-carousel` | Carousel |
 | `.js-collapse-toggle` + `data-target` | Collapse |
+| `.js-drawer-toggle` + `data-target` | Drawer open |
+| `.js-drawer-close` | Drawer close |
 | `.js-dropdown-toggle` | Dropdown |
 | `.js-modal-toggle` + `data-target` | Modal open |
 | `.js-modal-close` | Modal close |
-| `.js-offcanvas-toggle` + `data-target` | Offcanvas open |
-| `.js-offcanvas-close` | Offcanvas close |
 | `.js-popover` | Popover |
 | `.js-scrollspy` | Scrollspy |
 | `.js-tab` | Tab |

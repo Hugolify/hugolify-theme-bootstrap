@@ -1,7 +1,7 @@
 /**
  * Menu — sticky header + body class toggles on open/close.
  *
- * Listens to custom events dispatched by components (dropdown, offcanvas, modal).
+ * Listens to custom events dispatched by components (dropdown, offcanvas (drawer), modal).
  */
 
 class Menu {
@@ -36,7 +36,9 @@ class Menu {
   }
   initOffcanvas() {
     if (this.componentElm) {
-      this.toggleMenu(this.componentElm, this.component, this.classMenuOpen);
+      // Bootstrap fires 'show.bs.offcanvas' / 'hidden.bs.offcanvas' regardless of CSS class
+      const bsComponent = this.component === 'drawer' ? 'offcanvas' : this.component;
+      this.toggleMenu(this.componentElm, bsComponent, this.classMenuOpen);
     }
   }
   initSticky() {

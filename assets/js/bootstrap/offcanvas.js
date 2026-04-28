@@ -1,11 +1,11 @@
 /**
- * Offcanvas — Bootstrap init.
- * Bridges js-offcanvas-toggle / js-offcanvas-close classes to Bootstrap Offcanvas.
+ * Drawer — Offcanvas Bootstrap init.
+ * Bridges js-drawer-toggle / js-drawer-close classes to Bootstrap Offcanvas.
  */
 import Offcanvas from 'js/bootstrap/src/offcanvas';
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.js-offcanvas-toggle').forEach(trigger => {
+  document.querySelectorAll('.js-drawer-toggle').forEach(trigger => {
     const target = document.querySelector(trigger.dataset.target);
     if (!target) return;
     trigger.setAttribute('data-bs-toggle', 'offcanvas');
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  document.querySelectorAll('.js-offcanvas-close').forEach(btn => {
+  document.querySelectorAll('.js-drawer-close').forEach(btn => {
     btn.addEventListener('click', () => {
       const panel = btn.closest('[id]');
       if (panel) Offcanvas.getInstance(panel)?.hide();

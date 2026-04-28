@@ -1,0 +1,30 @@
+// Bridge: Bootstrap targets .offcanvas, hugolify-theme generates .drawer
+// .drawer* extends Bootstrap's .offcanvas* so no CSS is duplicated
+
+.drawer
+  @extend .offcanvas
+
+.drawer-start
+  @extend .offcanvas-start
+
+.drawer-end
+  @extend .offcanvas-end
+
+.drawer-top
+  @extend .offcanvas-top
+
+.drawer-bottom
+  @extend .offcanvas-bottom
+
+.drawer-backdrop
+  @extend .offcanvas-backdrop
+
+.drawer .header
+  @extend .offcanvas-header
+
+.drawer .title
+  @extend .offcanvas-title
+
+.drawer .body
+  @extend .offcanvas-body
+

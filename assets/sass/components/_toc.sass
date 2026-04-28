@@ -45,7 +45,7 @@
                 &:hover
                     text-decoration-color: $link-color
         
-    .offcanvas
+    .drawer
         @extend .offcanvas-lg
         @extend .offcanvas-end
         @include media-breakpoint-up(lg)
@@ -58,7 +58,6 @@
     .header
         @extend .offcanvas-header
         button
-            @extend .btn-close
             background-image: escape-svg($btn-close-bg)
             background-position: center
             background-repeat: no-repeat

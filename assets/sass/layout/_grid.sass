@@ -7,37 +7,46 @@
     >
         @include media-breakpoint-up(md)
             .heading
-                grid-column: 1/13
+                grid-column: span 12
                 grid-row: 1
+            .sidebar + div
+                grid-column: span 9
+                grid-row: 2
             .content
-                grid-column: 1/9
+                grid-column: span 8
                 grid-row: 2
             .sidebar,
             .toc
-                grid-column: 9/13
+                grid-column: span 4
                 grid-row: 2
             .sidebar + .toc
                 @include margin-top($global-spacing)
             nav
-                grid-column: 1/9
+                grid-column: span 8
                 grid-row: 100
             .related
-                grid-column: 1/13
+                grid-column: span 12
                 grid-row: 200
 
         @include media-breakpoint-up(xxl)
             .sidebar,
             .toc
-                grid-column: 10/13
+                grid-column: span 3
+            .sidebar--menu
+                grid-column: span 2
+            .sidebar + div
+                grid-column: span 10
 
         @include media-breakpoint-down(md)
             .heading
                 order: 1
+            .sidebar + div,
             .content
                 order: 3
             .sidebar
                 @include margin-top($global-spacing)
                 order: 4
+            .sidebar--menu,
             .toc
                 margin-bottom: $grid-gutter-width
                 order: 2
