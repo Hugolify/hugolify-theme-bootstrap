@@ -23,6 +23,7 @@
                 position: static
     .content
         @extend .card-body
+    .title,
     .name
         @extend .card-title
         @include font-size($h5-font-size)
@@ -30,13 +31,16 @@
         font-weight: $headings-font-weight
         line-height: $headings-line-height
     a 
+        .title,
         .name
             text-decoration-color: transparent
             text-decoration-line: underline
             text-decoration-thickness: 1px
             text-underline-offset: 3px
-        &:hover .name
-            text-decoration-color: currentColor
+        &:hover 
+            .title,
+            .name
+                text-decoration-color: currentColor
     p
         @extend .card-text
     time
@@ -57,8 +61,10 @@
             img
                 transform: scale(1.05)
     @media (prefers-reduced-motion: no-preference)
-        a .name
-            transition: text-decoration-color .2s ease
+        a 
+            .title,
+            .name
+                transition: text-decoration-color .2s ease
         a ~ .media
             img
                 transition: transform $transition-duration $transition-effect
