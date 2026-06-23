@@ -26,6 +26,13 @@ params:
   css:
     postcss: "postcss/bootstrap"
 
+  # Grid
+  column: 12
+  gutter: 24
+  container:
+    desktop: 1296
+    mobile: 300
+
   # Load JS
   animation: false # Load js and add data attributes
   carousel: true # Load splidejs
