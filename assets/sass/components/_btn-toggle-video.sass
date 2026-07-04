@@ -1,0 +1,12 @@
+// Play/pause toggle for autoplay videos without native controls.
+// The `.is-playing` state (set by video.js) decides which icon is shown.
+.btn-toggle-video
+    .icon-pause
+        display: none
+
+    &.is-playing
+        .icon-play
+            display: none
+
+        .icon-pause
+            display: inline-flex
