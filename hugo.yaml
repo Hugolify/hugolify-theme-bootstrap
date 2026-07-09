@@ -27,9 +27,15 @@ params:
     postcss: "postcss/bootstrap"
 
   # Grid
-  column: 12
-  gap: 24
-  gutter: 30
+  column:
+    desktop: 12
+    mobile: 1
+  gap:
+    desktop: 24
+    mobile: 24
+  gutter:
+    desktop: 30
+    mobile: 16
   container:
     desktop: 1296
     mobile: 300
