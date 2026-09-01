@@ -5,6 +5,12 @@ $global-spacing-double: $global-spacing * 2 !default
 $global-spacing-semi: $global-spacing / 2 !default
 $gutter-mobile: 1.875rem !default
 
+// Colours — bridge for the design-system palette names the .*-theme component
+// variants are built on. Bootstrap already covers black, dark, light and white.
+$accent: $primary !default
+$highlight: $yellow-200 !default
+$neutral: $secondary !default
+
 // Header and menu
 $header-background-color: #F8F9FA !default
 $header-color: invert($header-background-color) !default
@@ -25,6 +31,10 @@ $hero-min-height-mobile: $hero-min-height !default
 $home-hero-h1-font-size: $hero-h1-font-size !default
 $home-hero-min-height: $hero-min-height !default
 $home-hero-min-height-mobile: $hero-min-height !default
+
+// Hero themes — one colour per .hero-<name> variant, the text colour is
+// derived from it with color-contrast().
+$hero-themes: ("accent": $accent, "black": $black, "dark": $dark, "highlight": $highlight, "light": $light, "neutral": $neutral, "white": $white) !default
 
 // Footer
 $footer-background-color: #F8F9FA !default

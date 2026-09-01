@@ -1,0 +1,29 @@
+// Hero colour themes — .hero-<name>, emitted from the hero.ui.theme param
+// (hugolify-theme, commons/hero.html).
+//
+// Port of hero-theme.css (@uncinq/css-components): the design system reads
+// --color-<name> / --color-text-on-<name> tokens, which have no counterpart
+// here, so each variant takes its colour from $hero-themes and derives the
+// text colour with Bootstrap's color-contrast().
+//
+// Imported right after components/hero: these selectors and the ones they
+// override carry the same specificity, so source order is what decides.
+
+@each $name, $color in $hero-themes
+    .hero-#{$name}
+        --hero-title-color: #{color-contrast($color)}
+        background-color: $color
+        color: color-contrast($color)
+        a:not(.btn)
+            color: color-contrast($color)
+
+// components/hero paints both buttons in $primary — the accent background
+// itself, unless $accent has been overridden — so they would be invisible.
+// Swap them for the contrast colour, as hero-theme.css does in the design
+// system.
+.hero-accent
+    $hero-on-accent: color-contrast($accent)
+    .btn:first-of-type
+        @include button-variant($hero-on-accent, $hero-on-accent, $accent)
+    .btn + .btn
+        @include button-outline-variant($hero-on-accent)
