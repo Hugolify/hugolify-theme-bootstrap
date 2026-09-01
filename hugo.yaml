@@ -30,6 +30,7 @@ params:
   column:
     desktop: 12
     mobile: 1
+    tablet: 1
   gap:
     desktop: 24
     mobile: 24

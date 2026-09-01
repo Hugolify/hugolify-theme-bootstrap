@@ -17,7 +17,7 @@ header[role="banner"]
     > nav
         @extend .navbar
         @include navbar-expand($navbar-expand)
-    
+
     .btn-search
         @include button-variant(darken($header-background-color, 3),darken($header-background-color, 3))
         margin-left: auto
@@ -28,9 +28,12 @@ header[role="banner"]
         @extend .navbar-toggler
         border: 0
         margin-right: - $navbar-toggler-padding-x
-        > span
+        &::before
             --bs-navbar-toggler-icon-bg: #{escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$header-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>"))}
+            content: ''
             @extend .navbar-toggler-icon
+        span
+            display: none
     
     .logo
         color: $header-color

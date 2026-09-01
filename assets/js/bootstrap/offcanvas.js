@@ -1,33 +1,47 @@
 /**
  * Drawer — Offcanvas Bootstrap init.
- * Bridges js-drawer-toggle / js-drawer-close classes to Bootstrap Offcanvas.
+ *
+ * hugolify-theme emits one generic pair of classes for every panel
+ * (js-dialog-toggle / js-dialog-close, see commons/dialog.html); the panel's
+ * own class is what says which Bootstrap component drives it, so this file
+ * claims only the triggers whose target is a .drawer — modal.js claims the
+ * .modal ones. The js-drawer-* names stay supported for existing markup.
+ *
+ * The click is bound here rather than through data-bs-toggle="offcanvas":
+ * with both, Bootstrap's data-api and this listener would fire on the same
+ * click and the panel would open then close again.
  */
 import Offcanvas from 'js/bootstrap/src/offcanvas';
 
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.js-drawer-toggle').forEach(trigger => {
-    const target = document.querySelector(trigger.dataset.target);
-    if (!target) return;
-    trigger.setAttribute('data-bs-toggle', 'offcanvas');
-    trigger.setAttribute('data-bs-target', trigger.dataset.target);
-    const instance = new Offcanvas(target);
-    trigger.addEventListener('click', () => instance.show());
+const TOGGLE = '.js-dialog-toggle, .js-drawer-toggle';
+const CLOSE = '.js-dialog-close, .js-drawer-close';
 
-    // Close on anchor link click, then navigate after offcanvas hides
-    target.addEventListener('click', (e) => {
-      const link = e.target.closest('a[href^="#"]');
-      if (!link) return;
-      e.preventDefault();
-      const href = link.href;
-      instance.hide();
-      setTimeout(() => { location.href = href; }, 300);
-    });
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll(TOGGLE).forEach(trigger => {
+    const selector = trigger.dataset.target;
+    const target = selector ? document.querySelector(selector) : null;
+    if (!target || !target.classList.contains('drawer')) return;
+    const instance = Offcanvas.getOrCreateInstance(target);
+    trigger.addEventListener('click', () => instance.toggle());
   });
 
-  document.querySelectorAll('.js-drawer-close').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const panel = btn.closest('[id]');
-      if (panel) Offcanvas.getInstance(panel)?.hide();
+  document.querySelectorAll(CLOSE).forEach(btn => {
+    const panel = btn.closest('.drawer');
+    if (!panel) return;
+    btn.addEventListener('click', () => Offcanvas.getInstance(panel)?.hide());
+  });
+
+  // Close on anchor link click, then navigate after the drawer hides.
+  // Only while it is an overlay: inline drawers (.toc, .sidebarmenu above
+  // their breakpoint) must let the link navigate on its own.
+  document.querySelectorAll('.drawer').forEach(drawer => {
+    drawer.addEventListener('click', (e) => {
+      const link = e.target.closest('a[href^="#"]');
+      if (!link || !drawer.classList.contains('show')) return;
+      e.preventDefault();
+      const href = link.href;
+      Offcanvas.getInstance(drawer)?.hide();
+      setTimeout(() => { location.href = href; }, 300);
     });
   });
 });

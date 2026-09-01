@@ -1,0 +1,24 @@
+// Bridge: neutralises the UA styles of a panel (.drawer / .modal)
+//
+// hugolify-theme (commons/dialog.html) emits the panel as popover="auto", or as
+// a <dialog> when expand: none. Bootstrap opens both with .show / .showing and
+// never calls showPopover() or showModal(), so those UA rules never do their
+// job — they only leak the box properties Bootstrap leaves undeclared:
+// margin: auto and width/height: fit-content re-centre and shrink the panel,
+// and a medium border plus a .25em padding land on every side Bootstrap does
+// not set.
+//
+// Every value below is the CSS initial value, so the reset is a no-op on a bare
+// element and only ever undoes the UA sheet. :where() keeps it at zero
+// specificity: .offcanvas-*, .modal-* and the host components still own the
+// placement. The leading * is only there because the indented syntax reads a
+// line starting with ":" as a property declaration.
+
+*:where(.drawer, .modal)
+    border: 0
+    height: auto
+    inset: auto
+    margin: 0
+    overflow: visible // also lets a nested [popover] escape the panel
+    padding: 0
+    width: auto
