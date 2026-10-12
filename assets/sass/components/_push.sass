@@ -37,35 +37,45 @@
         justify-content: center
         z-index: 1
 
-        > div
-            background-color: $body-bg
+    // Card: the markup is the same as without it, .content itself becomes the
+    // text box. It stops filling the ratio box and sits inside it, centred
+    // vertically by its auto margins. The doubled class keeps its titles ahead
+    // of .block-pushes .items-2, which is imported later.
+    &.push-card > .content
+        background-color: $body-bg
+        color: $body-color
+        height: fit-content
+        inset: 0
+        margin-block: auto
+        padding: 2rem
+        @include media-breakpoint-up(md)
+            width: 50%
+        @include media-breakpoint-up(xl)
+            width: 33%
+        h2, h3
+            @include font-size(map-get($display-font-sizes, 2))
+        h2, h3, p
             color: $body-color
-            padding: 2rem
-            width: 100%
-            @include media-breakpoint-up(md)
-                width: 50%
-            @include media-breakpoint-up(xl)
-                width: 33%
-            h2, h3
-                @include font-size(map-get($display-font-sizes, 2))
-            h2, h3, p
-                color: $body-color
-            p
-                font-size: $font-size-base
-            .btn
-                @include button-variant($primary,$primary)
-
+        p
+            font-size: $font-size-base
+        .btn
+            @include button-variant($primary,$primary)
 
     @include media-breakpoint-up(md)
         &-end
             .content
                 align-items: flex-end
                 text-align: right
-        
+            &.push-card > .content
+                margin-left: auto
+
     &-center
         .content
             align-items: center
             text-align: center
+        &.push-card > .content
+            margin-left: auto
+            margin-right: auto
 
     &-darken 
         picture
