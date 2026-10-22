@@ -1,0 +1,21 @@
+.anchor-heading
+    &-icon
+        display: inline-block
+        margin-inline-end: .4em
+        vertical-align: -.15em
+        .icon
+            // 1em = the heading's font-size: the icon follows every
+            // level (H1–H6) without a per-level rule.
+            --icon-size: .9em
+
+    &-link
+        color: inherit
+        text-decoration: none
+        &::after
+            content: " #"
+            opacity: 0
+            text-decoration: none
+            transition: opacity 200ms ease-in-out
+
+    &:hover &-link::after
+        opacity: .5
