@@ -12,6 +12,7 @@
  * click and the panel would open then close again.
  */
 import Offcanvas from 'js/bootstrap/src/offcanvas';
+import removeInvokers from '../utils/invokers';
 
 const TOGGLE = '.js-dialog-toggle, .js-drawer-toggle';
 const CLOSE = '.js-dialog-close, .js-drawer-close';
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const selector = trigger.dataset.target;
     const target = selector ? document.querySelector(selector) : null;
     if (!target || !target.classList.contains('drawer')) return;
+    removeInvokers(trigger);
     const instance = Offcanvas.getOrCreateInstance(target);
     trigger.addEventListener('click', () => instance.toggle());
   });
@@ -28,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll(CLOSE).forEach(btn => {
     const panel = btn.closest('.drawer');
     if (!panel) return;
+    removeInvokers(btn);
     btn.addEventListener('click', () => Offcanvas.getInstance(panel)?.hide());
   });
 

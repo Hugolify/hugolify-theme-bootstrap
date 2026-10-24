@@ -15,13 +15,15 @@ This module provides the CSS (Bootstrap 5 + SASS) and JavaScript (Bootstrap 5 + 
 
 ## Install
 
-Edit `config/_default/module.yaml`:
+Edit `config/_default/module.yaml`, importing this module **before** hugolify-theme:
 
 ```yaml
 imports:
-  - path: github.com/hugolify/hugolify-theme/v2
   - path: github.com/hugolify/hugolify-theme-bootstrap
+  - path: github.com/hugolify/hugolify-theme/v2
 ```
+
+The first import wins, so this order is what lets the partials in `layouts/` override the theme's. They drop the native panel invokers (`popovertarget`, `commandfor`) hugolify-theme writes for the browser to open its panels: here `bootstrap/offcanvas.js` and `bootstrap/modal.js` open them, and both would act on the same click. With the theme imported first, those scripts still remove the invokers when the page loads, so the panels keep working with JavaScript, but not without.
 
 ## Customization
 
@@ -108,6 +110,7 @@ Add custom JS in:
 ## Structure
 
 ```
+layouts/partials/              # Legacy overrides of hugolify-theme partials
 assets/
 ├── sass/
 │   ├── main.sass              # Entry point

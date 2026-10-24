@@ -1,0 +1,27 @@
+{{/*  Legacy override of hugolify-theme commons/dialog/button.html: the same
+      trigger without its native invoker (popovertarget, commandfor), since
+      bootstrap/offcanvas.js and bootstrap/modal.js open the panels on
+      .js-dialog-toggle and the browser would act on the same click. Applied
+      only when this module is imported before hugolify-theme/v2, see README.
+      Keep it in step with the theme's partial.
+
+      id          (required) the panel's id
+      content     (required) the button's label, already rendered
+      params                 the component's site params: .expand
+      class                  extra classes, e.g. "btn btn-toc" or "btn-menu"
+      ariaLabel              accessible name when the label alone is not one
+      attrs                  extra attributes, e.g. data-pagefind-ignore  */}}
+{{- $expand := "md" }}
+{{- with .params }}{{ with .expand }}{{ $expand = . }}{{ end }}{{ end }}
+{{- $classes := slice }}
+{{- with .class }}{{ $classes = $classes | append . }}{{ end }}
+{{- $classes = $classes | append "js-dialog-toggle" }}
+{{- if ne $expand "none" }}{{ $classes = $classes | append (print "panel-trigger-" $expand) }}{{ end }}
+<button type="button"
+    class="{{ delimit $classes ` ` }}"
+    data-target="#{{ .id }}"
+    aria-controls="{{ .id }}"
+    {{- with .ariaLabel }} aria-label="{{ . }}"{{ end }}
+    {{- with .attrs }} {{ . | safeHTMLAttr }}{{ end }}>
+  {{- .content -}}
+</button>

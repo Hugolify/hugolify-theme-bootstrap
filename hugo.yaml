@@ -4,7 +4,11 @@ module:
     # Copy SASS and JS
     - source: assets
       target: assets
-  
+    # Legacy overrides of hugolify-theme partials: only applied when this
+    # module is imported before hugolify-theme/v2, see README
+    - source: layouts
+      target: layouts
+
   imports:
     
     # Import Bootstrap 5
