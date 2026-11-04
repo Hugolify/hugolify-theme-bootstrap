@@ -46,6 +46,9 @@ import './vendors/custom';
 {{ if .Site.Params.carousel }}
     import './features/carousel';
 {{ end }}
+{{ if .Site.Params.form.ajax }}
+    import './features/form';
+{{ end }}
 {{ if .Site.Params.map }}
     import './features/map';
 {{ end }}

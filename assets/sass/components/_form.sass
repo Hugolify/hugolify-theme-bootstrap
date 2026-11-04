@@ -11,15 +11,18 @@
         @include media-breakpoint-up(lg)
             @include make-col(12)
 
+    // Meaning of the asterisk, before the first field (RGAA 11.10)
+    > .required
+        @include make-col-ready()
+
+    // Answer of the form script (params.form.ajax), above .actions
+    .message
+        width: 100%
+
     &.is-submitting
+        cursor: progress
         [type=submit]
             pointer-events: none
-    
-    &.has-error,
-    &.is-success
-        .message
-            @extend .alert !optional
-            width: 100%
 
     &.has-error
         .message
@@ -35,5 +38,6 @@
             --bs-alert-border-color: var(--bs-success-border-subtle)
             --bs-alert-link-color: var(--bs-success-text-emphasis)
             margin-bottom: 0
-        .message ~ div
+        // Once sent, only the answer remains
+        > :not(.message)
             display: none
