@@ -42,8 +42,10 @@ class Carousel {
   }
 
   initI18n() {
+    // Splide names the previous arrow label `prev`, window.i18n.carousel
+    // keeps the `previous` key of the i18n files.
     Splide.defaults = {
-      i18n: window.i18n.carousel
+      i18n: { ...window.i18n.carousel, prev: window.i18n.carousel.previous }
     };
   }
 
