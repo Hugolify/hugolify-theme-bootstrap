@@ -137,6 +137,16 @@ assets/
 
 https://icons.getbootstrap.com
 
+The full Bootstrap Icons font is served by default. To serve only the icons the site uses, `scripts/build-icons.mjs` builds a subset of the font (`static/assets/fonts/bootstrap-icons/`) and its SASS map (`assets/scss/bootstrap-icons/bootstrap-icons.scss`) in the project.
+
+The script ships with this module, in the Hugo module cache: a Hugo module cannot add npm scripts, so add this one to the project's `package.json`, it asks Hugo where the module is and runs the script from there:
+
+```json
+"build:icons": "node \"$(hugo config mounts | grep -o '\"dir\": *\"[^\"]*hugolify-theme-bootstrap[^\"]*\"' | head -1 | cut -d'\"' -f4)/scripts/build-icons.mjs\" && yarn build"
+```
+
+Its dependencies (`subset-font`, `js-yaml`) come with this module (`hugo mod npm pack && yarn install`). Run `yarn build:icons` again whenever the site uses a new icon, and commit the generated files.
+
 ## Documentation
 
 https://www.hugolify.io/docs/

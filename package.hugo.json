@@ -2,7 +2,9 @@
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^5",
     "autoprefixer": "^10",
+    "js-yaml": "^5",
     "postcss": "^8",
-    "postcss-cli": "^11"
+    "postcss-cli": "^11",
+    "subset-font": "^2"
   }
 }
